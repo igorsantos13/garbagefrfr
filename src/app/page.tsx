@@ -1,5 +1,6 @@
 "use client"
 import { useState } from "react"
+import Header from "./header"
 
 export default function Home() {
   const data = [
@@ -22,12 +23,13 @@ export default function Home() {
     setRowSelected(data)
   }
   return (
-    <div className="flex flex-col justify-center items-center bg-zinc-800 h-screen">
+    <div className="flex flex-col items-center justify-center h-screen bg-zinc-800">
+      <Header></Header>
       <h1>Dados:</h1>
       <h4 className="mt-10">{rowSelected?.name}</h4>
-      <ul className="flex flex-col justify-center items-center mt-20">
+      <ul className="flex flex-col items-center justify-center mt-20">
         {data.map(person => 
-        <li onClick={()=> handleSelectedRow(person)} className="cursor-pointer text-yellow-500" key={person.id}>Name: {person.name} Age: {person.age}</li>)
+        <li onClick={()=> handleSelectedRow(person)} className="text-yellow-500 cursor-pointer" key={person.id}>Name: {person.name} Age: {person.age}</li>)
       }
       </ul>
     </div>
